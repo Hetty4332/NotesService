@@ -1,0 +1,27 @@
+package com.example.notes.controlers;
+
+import com.example.notes.models.NotesModel;
+import com.example.notes.services.NotesService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/notes")
+public class NotesController {
+    private final NotesService service;
+
+    @GetMapping
+    private ResponseEntity<String> getNotesByAuthor() {
+        return null;
+    }
+
+    @PostMapping(value = "/add", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    private void addNotes(@RequestPart("notesModel") NotesModel notesModel,
+                          @RequestPart("file") MultipartFile file) {
+        service.addNotes(notesModel, file);
+    }
+}
