@@ -1,6 +1,6 @@
 package com.example.notes.services.security;
 
-import com.example.notes.models.security.User;
+import com.example.notes.models.entity.User;
 import com.example.notes.repositories.UserRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

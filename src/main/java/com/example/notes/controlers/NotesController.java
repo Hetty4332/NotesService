@@ -1,6 +1,6 @@
 package com.example.notes.controlers;
 
-import com.example.notes.models.NotesModel;
+import com.example.notes.models.entity.NotesModel;
 import com.example.notes.services.NotesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;

@@ -1,4 +1,4 @@
-package com.example.notes.models.security;
+package com.example.notes.models.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -12,7 +12,9 @@ import lombok.*;
 public class User {
     @Id
     private Long id;
-    private String username;
+    private String  username;
+
+    private String email;
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
