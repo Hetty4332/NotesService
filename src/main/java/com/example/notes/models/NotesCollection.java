@@ -4,7 +4,7 @@ import com.example.notes.models.entity.NotesModel;
 
 import java.util.List;
 
-public class Collection {
+public class NotesCollection {
     private String name;
     private List<NotesModel> notes;
 }
