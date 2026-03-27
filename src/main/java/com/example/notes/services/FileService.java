@@ -11,11 +11,11 @@ import java.nio.file.Paths;
 import java.util.UUID;
 @Service
 public class FileService {
-
     @Value("${upload.dir:uploads}")
     private String uploadDir;
 
     public String saveFile(MultipartFile file) throws IOException {
+
         Path uploadPath = Paths.get(uploadDir);
         if (!Files.exists(uploadPath)) {
             Files.createDirectories(uploadPath);
@@ -24,7 +24,6 @@ public class FileService {
         String fileName = UUID.randomUUID() + "-" + file.getOriginalFilename();
         Path filePath = uploadPath.resolve(fileName);
         Files.copy(file.getInputStream(), filePath);
-
         return filePath.toString();
     }
 }

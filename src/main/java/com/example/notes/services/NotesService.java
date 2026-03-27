@@ -27,9 +27,10 @@ public class NotesService {
             notesModel.setNotesFile(filePath);
             notesModelList.add(notesModel);
             log.info("Save notes: {} ",notesModel);
+            notesModelList.add(notesModel);
+
         } catch (IOException ioException) {
             log.error(ioException.getMessage());
         }
-        notesModelList.add(notesModel);
     }
 }
