@@ -22,6 +22,6 @@ public class NotesController {
     @PostMapping(value = "/add", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     private void addNotes(@RequestPart("notesModel") NotesModel notesModel,
                           @RequestPart("file") MultipartFile file) {
-        service.addNotes(notesModel, file);
+        service.saveNotes(notesModel, file);
     }
 }

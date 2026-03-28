@@ -33,7 +33,7 @@ public class NotesServiceTest {
         notesModel.setName("Пример нот");
         notesModel.setComplexity("EASY");
         notesModel.setAuthor("Пример автора");
-        notesService.addNotes(notesModel, multipartFile);
+        notesService.saveNotes(notesModel, multipartFile);
         verify(fileService, times(1)).saveFile(multipartFile);
     }
 }

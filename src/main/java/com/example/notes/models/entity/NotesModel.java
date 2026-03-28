@@ -1,16 +1,18 @@
 package com.example.notes.models.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.*;
 
-import java.io.File;
 @Builder
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Getter
+@Setter
 public class NotesModel {
+    @Id
+    private Long id;
     private String name;
     private String author;
     private String notesFile;

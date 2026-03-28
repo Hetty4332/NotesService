@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: NotesService
+  servlet:
+    multipart:
+      max-file-size: 30MB
+  datasource:
+    url: jdbc:postgresql://localhost:5432/notesapp
+    username: postgres
+    password: violin
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+upload:
+  dir: uploads
+application:
+  security:
+    jwt:
+      expiration: 360000
