@@ -1,5 +1,6 @@
 package com.example.notes.services;
 
+import com.example.notes.exceptions.NotesException;
 import com.example.notes.models.entity.NotesModel;
 import com.example.notes.repositories.NotesRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,8 +18,14 @@ public class NotesService {
     private final FileService fileService;
     private final NotesRepository notesRepository;
 
-    private List<NotesModel> getNotesByAuthor(String author) {
-        return null;
+    public List<NotesModel> getNotesByAuthor(String author) {
+        //TODO: придумать как отдавать файл, тесты
+        try {
+            return notesRepository.findByAuthor(author);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            throw new NotesException("Ошибка при поиске по автору");
+        }
     }
 
     public void saveNotes(NotesModel notesModel, MultipartFile file) {
@@ -27,8 +34,15 @@ public class NotesService {
             notesModel.setNotesFile(filePath);
             log.info("Save notes: {} ", notesModel);
             notesRepository.save(notesModel);
-        } catch (IOException ioException) {
-            log.error(ioException.getMessage());
+        } catch (IOException e) {
+            log.error(e.getMessage());
         }
+    }
+
+    public void createNotesCollection() {
+//сделать таблицу в бд, в ней хранить айдишники нот
+    }
+
+    public void addInNotesCollection() {
     }
 }

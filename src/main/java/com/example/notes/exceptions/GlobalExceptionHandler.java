@@ -32,4 +32,8 @@ public class GlobalExceptionHandler {
     public ResponseEntity<?> handleValidation(LoginAlreadyExistsException ex) {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ex.getMessage());
     }
+    @ExceptionHandler(NotesException.class)
+    public ResponseEntity<?> handleValidation(NotesException ex) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ex.getMessage());
+    }
 }

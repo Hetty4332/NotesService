@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/notes")
@@ -23,5 +25,11 @@ public class NotesController {
     private void addNotes(@RequestPart("notesModel") NotesModel notesModel,
                           @RequestPart("file") MultipartFile file) {
         service.saveNotes(notesModel, file);
+    }
+
+    @GetMapping(value = "/getByAuthor")
+    private List<NotesModel> getByAuthor(@RequestParam String author
+    ) {
+        return service.getNotesByAuthor(author);
     }
 }
