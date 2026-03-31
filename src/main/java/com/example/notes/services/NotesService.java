@@ -36,13 +36,8 @@ public class NotesService {
             notesRepository.save(notesModel);
         } catch (IOException e) {
             log.error(e.getMessage());
+            throw new NotesException("Ошибка при сохранении партитуры");
         }
     }
 
-    public void createNotesCollection() {
-//сделать таблицу в бд, в ней хранить айдишники нот
-    }
-
-    public void addInNotesCollection() {
-    }
 }

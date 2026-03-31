@@ -16,11 +16,6 @@ import java.util.List;
 public class NotesController {
     private final NotesService service;
 
-    @GetMapping
-    private ResponseEntity<String> getNotesByAuthor() {
-        return null;
-    }
-
     @PostMapping(value = "/add", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     private void addNotes(@RequestPart("notesModel") NotesModel notesModel,
                           @RequestPart("file") MultipartFile file) {
@@ -28,8 +23,8 @@ public class NotesController {
     }
 
     @GetMapping(value = "/getByAuthor")
-    private List<NotesModel> getByAuthor(@RequestParam String author
+    private ResponseEntity<List<NotesModel>> getByAuthor(@RequestParam String author
     ) {
-        return service.getNotesByAuthor(author);
+        return ResponseEntity.ok(service.getNotesByAuthor(author));
     }
 }
